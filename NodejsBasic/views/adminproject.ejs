@@ -1,0 +1,155 @@
+<%- include("partials/header") %>
+
+
+<style>
+    .column-1 {
+        float: left;
+        width: 35%;
+        padding: 20px;
+        background-color: #aaa;
+        margin-top: 110px;
+         
+    }
+    
+    .column-2 {
+        float: left;
+        width: 65%;
+        padding: 20px;
+    }
+  
+</style>
+<br><br><br>
+
+    <div class="row">
+        <div class="container">
+            <div class="column-1">
+                <div class="col-lg-3 col-lg-8 col-lg-12">
+                    <h3 class="my-4" style="text-align: center;">BG</h3>
+                    <div class="list-group">
+                        <a href="/admin/Projects/add" class="btn btn-primary">add</a>
+                    </div>
+                </div>
+            </div>
+            <div class="column-2">  
+                <div class="col-lg-8  col-lg-8 col-lg-12">
+                    <h3 style="text-align: center;" class="my-4">Admin</h3>
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">อาชีพ</th>
+                            <th scope="col">วันลงข้อมุล</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% Projects.forEach(function(project){ %>
+                        <tr>
+                            <th scope="row"><%= project.name %></th>
+                            <td><%= project.date %></td>
+                            <td>
+                                <a href="/admin/Projects/edit/<%= project._id %>" class="btn btn-primary">Edit</a>
+                            </td>
+                            <td>
+                                <a href="/admin/Projects/delete/<%= project._id %>" data-id="<%= project._id %>" class="btn btn-danger delete-PJ">Delete</a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+
+
+    <footer >
+        <div class="row">
+            <div class="container">
+                <div class="column-1">
+                    <div class="col-lg-3 col-lg-8 col-lg-12">
+                        <h3 class="my-4" style="text-align: center;">BG</h3>
+                        <div class="list-group">
+                            <a href="/catagory/add" class="btn btn-primary">เพิ่มหมวดหมู่สินค้า</a><br>
+                            <a href="/products/add" class="btn btn-primary">เพิ่มสินค้า</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column-2">  
+                    <div class="col-lg-8  col-lg-8 col-lg-12">
+                        <h3 style="text-align: center;" class="my-4">Admin</h3>
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">ชื่อสินค้า</th>
+                                <th scope="col">ราคา</th>
+                                <th scope="col">รายละเอียด</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <% products.forEach(function(product){ %>
+                            <tr>
+                                <th scope="row"><%= product.name %></th>
+                                <td><%= product.price %></td>
+                                <td><%= product.desc %></td>
+                                <td>
+                                    <a href="/admin/Projects/products/edit/<%= product._id %>" class="btn btn-primary">Edit</a>
+                                </td>
+                                <td>
+                                    <a href="/admin/Projects/products/delete/<%= product._id %>" data-id="<%= product._id %>" class="btn btn-danger delete-PJ">Delete</a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                            </tbody>
+                        </table>
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">ชื่อหมวดหมุ่</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <% catagorys.forEach(function(catagory){ %>
+                            <tr>
+                                <th scope="row"><%= catagory.name  %></th>
+                                <td>
+                                    <a href="/admin/Projects/catagory/delete/<%= catagory._id  %>" data-id="<%= catagory._id  %>" class="btn btn-danger delete-PJ">Delete</a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer><br><br>
+<script>
+    $(document).ready(function(){
+        $('.delete-PJ').on('click',function(){
+            var id = $(this).data(id);
+            var url = "/admin/Projects/delete/"+id;
+            if(confirm("คุณจริงจังที่จะลบหรือไม่ ")){
+                $.ajax({
+                    url:url,
+                    type:'GET',
+                    success:function(result){
+                        console.log(result);
+
+                    },error:function(err){
+                        console.log(err)
+                    }
+                }
+
+                )}
+            }
+        )
+    })
+</script>
+<%-  include("partials/footer") %>

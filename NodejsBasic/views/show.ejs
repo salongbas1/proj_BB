@@ -1,0 +1,32 @@
+<%- include("partials/header") %>
+<br><br><br><br>
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+        <%- include sidebar %>
+      <!-- /.col-lg-3 -->
+          
+      <div class="col-lg-9">
+        <div class="card mt-4">
+        <% products.forEach(function(product){ %>
+          <img src="/images/<%= product.image %>" width="300px" height="300px" alt="">
+          <div class="card-body">
+            <h3 class="card-title"><%= product.name %></h3>
+            <h4><%= formatMoney(product.price) %></h4>
+            <p class="card-text"><%= product.desc %></p>
+              <form action="/products/cart/" method="POST" class="form-group">
+                <input type="hidden" name="product_id" value="<%=product._id%>">  
+                <input type="submit" value="เพิ่มลงตะกร้า" class="btn btn-success">
+              </form>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+  <!-- /.container -->
+
+  
+
+<%-  include("partials/footer") %>

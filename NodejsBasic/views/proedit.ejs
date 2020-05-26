@@ -1,0 +1,105 @@
+<%- include("partials/header") %>
+<title>Edit Profile</title>
+<style>
+    .column-1 {
+        float: left;
+        width: 40%;
+        padding: 20px;
+        
+    }
+
+    .my-4 {
+        background-color: #aaa;
+    }
+    
+    .column-2 {
+        float: left;
+        width: 60%;
+        padding: 20px;
+    }
+
+
+</style>
+<br><br><br>
+
+    <div class="row">
+        <div class="container">
+            <div class="column-1">
+                <div class="col-lg-3 col-lg-8 col-lg-12">
+                    <h3 class="my-4" style="text-align: center;">แก้ไขโปรไฟล์</h3>                   
+                </div>
+                <div style=" padding: 10px;" id="imagepreview" >
+                    <img src="/images/<%= user.image %>" id="image" width="300px" height="400px" alt="">
+                </div>
+                
+            </div>
+            <div class="column-2">  
+                <div class="col-lg-3 col-lg-8 col-lg-12">
+                <div class="container"  style="width: 35%;margin: 25px auto;">
+                    <% if(user){ %>
+                    <form class="form-group" action="/profile/edit" method="post" enctype="multipart/form-data">
+                        
+                        <div class="form-group">
+                            <label for="">Username:</label>
+                            <input type="text" name="name" value="<%= user.name %>" class="form-control">
+                        </div>
+                        <input type="hidden" name="id" value="<%= user._id %>">
+                        <div class="form-group">
+                            <label for="">Email:</label>
+                            <input type="email" name="email" value="<%= user.email %>" class="form-control">
+                        </div>
+                        <!-- <div class="form-group"> -->
+                            <!-- <label for="">Password:</label> -->
+                            <!-- <input type="password" name="password" value="<%= user.password %>" class="form-control"> -->
+                        <!-- </div> -->
+                        <div class="form-group">
+                            <label for="">Location:</label>
+                            <input type="text" name="location" value="<%= user.location %>" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Phone number:</label>
+                            <input type="text" name="callnumber" value="<%= user.callnumber %>" class="form-control">
+                        </div>
+                        <div id="imageselect">
+                        <label for="">รูปภาพ:</label>
+                        <input type="file" name="image" id="img_preview">
+                        
+                        </div>
+                        <br>
+                        
+                        
+                        
+
+                        <input type="submit" name="" value="อัพเดท" class="btn btn-success">
+                    </form>
+                    <% } %>
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    
+
+
+    <script>
+        var filename = document.getElementById("img_preview");
+            filename.onchange = function()
+            {
+                var file = filename.files[0];
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function(){
+                    var result = reader.result;
+                    document.getElementById("image").src = result;
+                };
+            };
+    </script>
+
+
+
+
+        
+
+       
+<%-  include("partials/footer") %>

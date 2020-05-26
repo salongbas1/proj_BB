@@ -1,0 +1,45 @@
+<%- include("partials/header") %>
+<title>Cart</title>
+<br><br><br><br>
+   <div class="container my-4">
+       <h2>ตะกร้าสินค้า</h2>
+    <table class="table my-5">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">รหัสสินค้า</th>
+            <th scope="col">ชื่อสินค้า</th>
+            <th scope="col">จำนวน</th>
+            <th scope="col">ราคา</th>
+            <th scope="col">รวม</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% cart.item.forEach(function(product){ %>
+          <tr>
+            <td>
+                <a href="/products/show/<%= product.item %>"><%= product.item %></a>
+            </td>
+            <td><%= product.title %></td>
+            <td><%= product.qty %></td>
+            <td><%= formatMoney(product.price) %></td>
+            <td><%= formatMoney(product.price * product.qty) %></td>
+          </tr>
+          <% }) %>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th>ราคารวม = </th>
+              <td>
+                <%= formatMoney(cart.total) %>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      
+      
+   </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<%-  include("partials/footer") %>

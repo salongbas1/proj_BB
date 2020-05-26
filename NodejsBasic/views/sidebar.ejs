@@ -1,0 +1,17 @@
+<div class="col-lg-3">
+    
+    <h1 class="my-4">BB Shop</h1>
+    <div class="list-group">
+     
+      <% catagorys.forEach(function(catagory){ %>
+
+        <a href="/products/show/?catagory=<%=catagory.name%>" class="list-group-item"><%= catagory.name  %></a>
+
+      <% }) %>
+      
+
+    </div>
+    
+
+</div>
+  <!-- /.col-lg-3 -->

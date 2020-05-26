@@ -1,0 +1,72 @@
+<%- include("partials/header") %>
+    
+  <title>Login</title>
+  <div bgcolor="gray" >
+    
+    <div>
+      <img class="mySlides" src="https://th.jobsdb.com/th-th/wp-content/uploads/sites/3/2014/08/%E0%B8%88%E0%B8%B9%E0%B8%87%E0%B9%83%E0%B8%88%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%97%E0%B8%B3%E0%B8%87%E0%B8%B2%E0%B8%99.jpg" style="width:1600px" height="789px">
+      <img class="mySlides" src="https://thailandtopvote.com/wp-content/uploads/2018/03/one-person.jpg" style="width:1600px" height="789px"> 
+      
+       <style>
+
+          @media only screen and (max-width: 600px) {
+            .Bo {
+              background-color: lightblue;
+            }
+          }
+
+       </style>
+      <div class="Bo">
+          <div class="container " >
+              <div class="carousel-caption text-left " style="height: 600px;" > 
+                 <div style="text-align: center;">
+                      <div class="container"  style="width: 35%;margin: 25px auto;">
+                          <div class="container">
+                              <div class="jumbotron" style="background-color: gainsboro;">
+                                <%- messages() %>
+                                  <form class="form-group" action="/users/login" method="post">
+                                      <div class="form-group">
+                                          <label for="" style="color: black;float: left;">Username:</label>
+                                          <input type="text" name="username" value="" class="form-control">
+                                      </div>
+                              
+                                      <div class="form-group">
+                                          <label for="" style="color: black;float: left;">Password:</label>
+                                          <input type="password" name="password" value="" class="form-control">
+                                      </div>
+                                          <a href="/users/register" style="color: blue;float: left;">>> ลงทะเบียน</a>
+                                          <input type="submit" name="" value="Login" class="btn btn-success" style="float: right;" >
+                                  </form>
+                              </div>
+                          </div>        
+                      </div>
+                 </div>
+                  <div class="container" style="text-align: center;">
+                    <p><a class="btn btn-lg btn-primary w3-animate-zoom" href="/home" role="button" data-toggle="tooltip" data-placement="bottom" title="Hee!!" style=" margin-top: 20px;" >คลิ๊กเพื่อเข้าสูเว็บไซด์</a></p>
+                  </div>
+              </div>
+          </div>
+        </div>
+      
+    </div>
+    <script>
+      var myIndex = 0;
+      carousel();
+      
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}    
+        x[myIndex-1].style.display = "block";  
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+      }
+
+      $('#messages').addClass("alert alert-danger");
+      </script>
+  
+  </div>
+<%-  include("partials/footer") %>

@@ -1,0 +1,28 @@
+<%- include("partials/header") %>
+<br><br><br><br>
+    <div class="container">
+        <div class="row my-4">
+        <%- include sidebar %>
+        <div class="col-lg-9">
+            <h2 style="text-align: center;">แบบฟอร์มบันทึกหมวดหมู่สินค้า</h2><br>
+            <% if(locals.errors) { %>
+                <ul class="alert alert-primary" role="alert">
+                    <% Object.values(errors).forEach(function(error){ %>
+                       <li><%= error.msg %></li> 
+                    <% }) %>
+                </ul>
+
+            <% } %>
+            <form action="/catagory/add" method="POST">
+                <div class="form-group">
+                    <label for="">ชื่อหมวดหมู่</label>
+                    <input type="text" name="name" class="form-control" id="">
+                </div>
+                <input type="submit" name="" id="" class="btn btn-success" value="บันทึกข้อมูล">
+            </form>
+        </div>
+      </div>
+    </div>
+ 
+    
+<%- include("partials/footer") %>

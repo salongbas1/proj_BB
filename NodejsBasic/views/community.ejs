@@ -1,0 +1,70 @@
+
+        
+<%- include("partials/header") %>
+<style>
+  .img-crop
+{
+  width: 100%;
+  object-fit: cover;
+  object-position: top; 
+  border: 1px solid;
+  border-color:white;
+  cursor: pointer;
+  height: 300px;
+  
+
+}
+</style>
+<title>Shop</title>
+        <h1></h1>
+        <br><br><br><br>
+ <!-- Page Content -->
+ <div class="container">
+        
+        <div class="row">
+                <%- include sidebar %>
+          <div class="col-lg-9">
+         
+            <div class="row my-4">
+              <% products.forEach(function(product){ %>
+              <div class="col-lg-4 col-md-6 mb-4">
+
+                <div class="card h-100">
+                  <a href="/products/show/<%= product._id%>"><img  src="/images/<%= product.image %>" class="img-crop" ></a>
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <a href="/products/show/<%= product._id%>"><%= product.name %></a>
+                    </h4>
+                    <h5>$<%= formatMoney(product.price) %></h5>
+                    <p class="card-text"><%= descText(product.desc,50) %></p>
+                  </div>
+                  <div class="card-footer">
+                      <form action="/products/cart/" method="POST" class="form-group">
+                        <input type="hidden" name="product_id" value="<%=product._id%>">  
+                        <input type="submit" value="เพิ่มลงตะกร้า" class="btn btn-success">
+                      </form>
+                  </div>
+                </div>
+
+              </div>
+              <% }) %>
+    
+            </div>
+            <!-- /.row -->
+    
+          </div>
+          <!-- /.col-lg-9 -->
+    
+        </div>
+        <!-- /.row -->
+    
+      </div>
+      <!-- /.container -->
+    
+      
+
+    
+
+
+       
+<%-  include("partials/footer") %>

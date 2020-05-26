@@ -1,0 +1,14 @@
+<%- include("partials/header") %>
+<br><br><br><br>
+    <div class="container">
+        <% Projects.forEach(function(project){ %>
+            <img src="/images/<%= project.image %>" alt="">
+            <h3><%= project.name %></h3>
+            <p><%= project.desc %></p>
+            <p><%= project.date %></p>
+        
+        <% }) %>
+    </div>
+
+
+<%-  include("partials/footer") %>
