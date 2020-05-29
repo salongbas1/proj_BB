@@ -5,7 +5,7 @@ var router = express.Router();
 var mongodb = require('mongodb');
 var db = require('monk')('localhost:27017/ProjectDB');
 var ddb = require('monk')('localhost:27017/LoginDB');
-
+var social = require('monk')('localhost:27017/social');
 
 //upload
 var multer = require('multer');
@@ -53,6 +53,7 @@ router.get('/edit',function(req,res,next){
 
 router.post('/edit',upload.single("image"),function(req,res,next){
   var Users = ddb.get('users');
+  var post = social.get('post')
   //มีการแก้ไขอัพโหลดภาพ
   if(req.file){
       var usersimage = req.file.filename;
@@ -68,9 +69,19 @@ router.post('/edit',upload.single("image"),function(req,res,next){
           image:usersimage
         }
       },function(err,success){
+       
+       
         if(err){
           res.send(err)
         } else {
+          post.update({
+            _id:req.body.id
+        },{
+          $set:{
+            
+            user_image:req.body.user_image
+          }
+        })
           res.location('/profile')
           res.redirect('/profile')
         }

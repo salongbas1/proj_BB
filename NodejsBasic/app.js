@@ -38,6 +38,8 @@ var communityRouter = require('./routes/community');
 var adminRouter = require('./routes/admin');
 var catagoryRouter = require('./routes/catagory');
 var productRouter = require('./routes/products');
+var socialRouter = require('./routes/social');
+
 
 
 
@@ -101,6 +103,7 @@ app.use('/community',communityRouter);
 app.use('/admin',adminRouter);
 app.use('/catagory',catagoryRouter)
 app.use('/products',productRouter)
+app.use('/social',socialRouter)
 
 //จำกัดจำนวนข้อความ
 app.locals.descText= function(text,length){

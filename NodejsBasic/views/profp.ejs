@@ -1,0 +1,11 @@
+<% if(user){ %>
+    <div class="col-lg-10">
+        
+        <div class="list-group">
+            <img src="/images/<%= user.image %>" style="width:100%" >
+        </div>      
+    </div>
+    <div><br>
+        <p><%= user.name %></p>
+    </div>
+<% } %>
