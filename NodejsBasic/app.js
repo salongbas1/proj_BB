@@ -10,7 +10,7 @@ var connectflash = require('connect-flash')
 //เชื่อมต่อ DB
 var mongodb = require('mongodb');
 var db = require('monk')('localhost:27017/ProjectDB');
-var stonedb = require('monk')('localhost:27017/Stonebg');
+var blogdb = require('monk')('localhost:27017/blog');
 
 //เชื่อมต่อการ อัพโหลด 
 var multer = require('multer');
@@ -38,7 +38,8 @@ var communityRouter = require('./routes/community');
 var adminRouter = require('./routes/admin');
 var catagoryRouter = require('./routes/catagory');
 var productRouter = require('./routes/products');
-var socialRouter = require('./routes/social');
+var blogRouter = require('./routes/blog');
+
 
 
 
@@ -103,7 +104,8 @@ app.use('/community',communityRouter);
 app.use('/admin',adminRouter);
 app.use('/catagory',catagoryRouter)
 app.use('/products',productRouter)
-app.use('/social',socialRouter)
+app.use('/blog',blogRouter)
+
 
 //จำกัดจำนวนข้อความ
 app.locals.descText= function(text,length){

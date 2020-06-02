@@ -1,0 +1,22 @@
+
+<%- include("partials/header") %>
+<br><br><br><br>
+<div class="container">
+
+    <form action="/blog/catablog/add" method="POST">
+        <div class="form-group">
+            <% if(locals.errors) { %>
+                <ul class="alert alert-danger" role="alert">
+                    <% Object.values(errors).forEach(function(error){ %>
+                        <li><%= error.msg  %></li>
+                    <% }) %>
+                </ul>
+            <% } %>
+            <label for="">เพิ่มชื่อประเภท</label>
+            <input type="text" name="name" value="" class="form-control">
+        </div>
+        <input type="submit"  value="บันทึก" class="btn btn-success">
+    </form>
+</div>
+    
+<%-  include("partials/footer") %>
