@@ -1,0 +1,51 @@
+<%- include("partials/header") %>
+<br><br><br><br>
+<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
+
+<div class="container">
+    <% if(locals.errors) { %>
+        <ul class="alert alert-danger" role="alert">
+            <% Object.values(errors).forEach(function(error){ %>
+                <li><%= error.msg  %></li>
+            <% }) %>
+        </ul>
+    <% } %>
+
+    <form action="/blog/post/add" method="POST">
+        <% if(locals.catablog) { %>
+        <div class="form-group">
+            <label for="">หัวข้อ</label>
+            <input type="text" name="title" value="" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">ประเภทบทความ</label>
+            <select name="catablog" class="form-group">
+                <% catablog.forEach(function(catablog){ %>
+                <option value="<%= catablog.name%>"><%= catablog.name%></option>
+                <%})%>
+            </select>
+           
+        </div>
+        <% } %>
+        <div class="form-group">
+                <label for="">เนื้อหา</label>
+                <textarea type='text' name="desc" cols="100" rows="8"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="">ภาพ</label>
+            <input type="text" name="image" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">ผู้เขียน</label>
+            <input type="text" name="author" class="form-control"> 
+        </div>
+        <input type="submit"  value="บันทึก" class="btn btn-success">
+    </form>
+</div>
+<script>
+    CKEDITOR.replace( 'desc' );
+ 
+</script>
+    
+<%-  include("partials/footer") %>
