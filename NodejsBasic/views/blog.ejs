@@ -24,7 +24,7 @@
             <h2 class="card-title"><%= posts.title %></h2>
             <p class="card-text"><%- descText(posts.desc,400) %>
             </p>
-            <a href="/showblog/<%= posts._id %>" class="btn btn-primary">Read More &rarr;</a>
+            <a href="/blog/showblog/<%= posts._id %>" class="btn btn-primary">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
             โพสเวลา <%= moment(posts.date).format("DD-MM-YYYY")%> โดย
@@ -44,11 +44,7 @@
 
       </div>
 
-    </div>
-    <!-- /.row -->
 
-  </div>
-  <!-- /.container -->
 
   
 

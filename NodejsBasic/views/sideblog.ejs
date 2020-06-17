@@ -24,7 +24,7 @@
              <% catablog.forEach(function(catablog){ %>
 
               <li>
-                    <a href="#"><%=catablog.name%></a>
+                    <a href="/post/show/?catablog=<%= catablog.name%>"><%=catablog.name%></a>
               </li>
               <% }) %>
             </ul>
