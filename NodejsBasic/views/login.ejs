@@ -1,72 +1,114 @@
 <%- include("partials/header") %>
-    
-  <title>Login</title>
-  <div bgcolor="gray" >
-    
-    <div>
-      <img class="mySlides" src="https://th.jobsdb.com/th-th/wp-content/uploads/sites/3/2014/08/%E0%B8%88%E0%B8%B9%E0%B8%87%E0%B9%83%E0%B8%88%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%97%E0%B8%B3%E0%B8%87%E0%B8%B2%E0%B8%99.jpg" style="width:1600px" height="789px">
-      <img class="mySlides" src="https://thailandtopvote.com/wp-content/uploads/2018/03/one-person.jpg" style="width:1600px" height="789px"> 
-      
-       <style>
+<link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">    
+<title>LOGIN</title>
+<body>
 
-          @media only screen and (max-width: 600px) {
-            .Bo {
-              background-color: lightblue;
-            }
-          }
+  <div class="bgimg">
+    <div class="centerdiv">
+        <img src=https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/8_avatar-128.png id="profilepic">
+        <h2>user login</h2>
+        <form class="form-group" action="/users/login" method="post">
+            <div class="form-group">
+              <input type="text" name="username" class="inputbox" placeholder="๊Username">
+            </div>
+            
+            <br>
 
-       </style>
-      <div class="Bo">
-          <div class="container " >
-              <div class="carousel-caption text-left " style="height: 600px;" > 
-                 <div style="text-align: center;">
-                      <div class="container"  style="width: 35%;margin: 25px auto;">
-                          <div class="container">
-                              <div class="jumbotron" style="background-color: gainsboro;">
-                                <%- messages() %>
-                                  <form class="form-group" action="/users/login" method="post">
-                                      <div class="form-group">
-                                          <label for="" style="color: black;float: left;">Username:</label>
-                                          <input type="text" name="username" value="" class="form-control">
-                                      </div>
-                              
-                                      <div class="form-group">
-                                          <label for="" style="color: black;float: left;">Password:</label>
-                                          <input type="password" name="password" value="" class="form-control">
-                                      </div>
-                                          <a href="/users/register" style="color: blue;float: left;">>> ลงทะเบียน</a>
-                                          <input type="submit" name="" value="Login" class="btn btn-success" style="float: right;" >
-                                  </form>
-                              </div>
-                          </div>        
-                      </div>
-                 </div>
-                  <div class="container" style="text-align: center;">
-                    <p><a class="btn btn-lg btn-primary w3-animate-zoom" href="/home" role="button" data-toggle="tooltip" data-placement="bottom" title="Hee!!" style=" margin-top: 20px;" >คลิ๊กเพื่อเข้าสูเว็บไซด์</a></p>
-                  </div>
-              </div>
-          </div>
-        </div>
-      
+            <div class="form-group">
+              <input type="password" name="password" class="inputbox" placeholder="Password">
+            </div>
+            <br>
+            <div>
+              <button type ="submit"> LOGIN </button>
+            </div>
+            <div class="regist">
+              <a href="/users/register" style="color: White;float: left;"> register</a>
+            </div>
+        </form>
     </div>
-    <script>
-      var myIndex = 0;
-      carousel();
-      
-      function carousel() {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";  
-        }
-        myIndex++;
-        if (myIndex > x.length) {myIndex = 1}    
-        x[myIndex-1].style.display = "block";  
-        setTimeout(carousel, 2000); // Change image every 2 seconds
-      }
-
-      $('#messages').addClass("alert alert-danger");
-      </script>
-  
   </div>
+</body>
+
+
+
+
+
+
+
+<style>
+
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: 'Bitter', serif;
+  }
+  .bgimg{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(27deg,#85cdca 50%,#e8a87c 50%);
+  }
+  .centerdiv{
+    width: 350px; 
+    height: 400px;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    background-color: red;
+    transform: translate(-50%,-50%);
+    background-image: linear-gradient(27deg,#e8a87c 50%,#85cdca 50% 50%);
+    box-shadow:0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.24);
+  }
+  #profilepic{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+    top: -60px;
+    left: calc( (350px - 120px) / 2);
+  }
+  h2{
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    word-spacing: 10px;
+    font-family: 'Bitter', serif;
+    margin-top: -50px;
+    margin-bottom: 50px;
+    text-shadow: -2px 2px 1px #e8a87c;
+
+  }
+  .inputbox{
+    width: calc(100% - 40px);
+    height: 30px;
+    display: block;
+    margin: auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  ::placeholder{
+    letter-spacing: 2px;
+    color: black;
+  }
+  button{
+    width: calc(50% - 40px);
+    height: 30px;
+    display: block;
+    color: black;
+    background-color:white ;
+    border: none;
+   position: fixed;
+   left: 30%;
+   top: 70%;
+  }
+  .regist{
+    position: fixed;
+    left: 42%;
+    top: 80%;
+  }
+
+
+
+</style>
+
 <%-  include("partials/footer") %>
