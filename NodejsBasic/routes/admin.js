@@ -4,6 +4,7 @@ var router = express.Router();
 var mongodb = require('mongodb');
 var db = require('monk')('localhost:27017/ProjectDB');
 var stonedb = require('monk')('localhost:27017/Stonebg');
+var blog = require('monk')('localhost:27017/blog');
 
 //การอัพโหลดใช้ตัวนี้
 //เชื่อมต่อการ อัพโหลด 
@@ -33,14 +34,21 @@ router.get('/Projects', function(req, res, next) {
       var   Projects = db.get('Projects');
       var catagorys = stonedb.get('catagory')
       var products = stonedb.get('products')
+      var catablog = blog.get('catablog')
+      var post = blog.get('post')
+
       Projects.find({},{},function(err,project){
         products.find({},{},function(err,product){
           catagorys.find({},{},function(err,catagory){
-      console.log(project)
-      res.render('adminproject',{Projects:project,catagorys:catagory,products:product})
+            catablog.find({},{},function(err,catablog){
+              post.find({},{},function(err,post){
+              console.log(project)
+              res.render('adminproject',{Projects:project,catagorys:catagory,products:product, catablog:catablog ,post:post})
+              })
+            })
+          })
+        })
       })
-    })
-  })
 });
 
 
@@ -92,6 +100,22 @@ router.get('/Projects/catagory/delete/:id', function(req, res, next) {
   //เข้าถึงโปรเขจ็ค
     var catagorys = stonedb.get('catagory')
     catagorys.remove({_id:req.params.id});
+    res.redirect('/admin/Projects');
+   
+ })
+
+ router.get('/Projects/blog/delete/:id', function(req, res, next) {
+  //เข้าถึงโปรเขจ็ค
+    var catablog = blog.get('catablog')
+    catablog.remove({_id:req.params.id});
+    res.redirect('/admin/Projects');
+   
+ })
+
+ router.get('/Projects/post/delete/:id', function(req, res, next) {
+  //เข้าถึงโปรเขจ็ค
+    var post = blog.get('post')
+    post.remove({_id:req.params.id});
     res.redirect('/admin/Projects');
    
  })

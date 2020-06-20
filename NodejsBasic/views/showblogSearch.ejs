@@ -13,7 +13,8 @@
   
       <!-- Blog Entries Column -->
       <div class="col-md-8">
-        <h1 class="my-4">บทความ</h1>
+        <%  if(post.length > 0){%>
+            <h1 class="my-4">ค้นหา "<%= search%>"</h1>
 
         <% post.forEach(function(posts){ %>
         
@@ -32,15 +33,16 @@
           </div>
           <% }) %>
         </div>
-        <!-- Blog Post -->
-      
-        
-         
-        </div>
-        <!-- Side Widget -->
-        <%-include sideblog %>
 
-      </div>
+        <!-- Blog Post -->
+
+      
+        <% } else { %>
+            <h1>ไม่พบบทความ</h1>
+        <% } %>
+    </div>
+    <%-include sideblog %>
+</div>
 
 
 
@@ -48,4 +50,3 @@
 
     
 <%-  include("partials/footer") %>
-        

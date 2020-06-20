@@ -6,10 +6,13 @@
       <h5 class="card-header">Search</h5>
       <div class="card-body">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for...">
-          <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button">Go!</button>
-          </span>
+          <form action="/blog/post/show" method="get">
+            <input type="text" class="form-control" placeholder="Search for..." name="title">
+            <span class="input-group-btn">
+              <input type="submit" value="Go" class="btn btn-success">
+            </span>
+          </form>
+          
         </div>
       </div>
     </div>
@@ -24,7 +27,7 @@
              <% catablog.forEach(function(catablog){ %>
 
               <li>
-                    <a href="/post/show/?catablog=<%= catablog.name%>"><%=catablog.name%></a>
+                    <a href="/blog/post/show/?catablog=<%= catablog.name%>"><%=catablog.name%></a>
               </li>
               <% }) %>
             </ul>

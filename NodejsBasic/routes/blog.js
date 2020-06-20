@@ -26,6 +26,37 @@ router.get('/showblog/:id', function(req, res, next) {
         })     
     }) 
   });
+
+router.get('/post/show/', function(req, res, next) {
+    var blogs = blog.get('post')
+    var catablog = blog.get('catablog')
+    var name = req.query.catablog
+    var author = req.query.author
+    var title = req.query.title
+
+    if(name){
+        blogs.find({catablog:name},{},function(err,blog){
+            catablog.find({},{},function(err,catablog){
+              res.render('showblogSearch',{post: blog , catablog:catablog , moment:moment , search:name});
+            })     
+        }) 
+    }
+    if(author){
+        blogs.find({author:author},{},function(err,blog){
+            catablog.find({},{},function(err,catablog){
+              res.render('showblogSearch',{post: blog , catablog:catablog , moment:moment , search:author});
+            })     
+        }) 
+    }
+    if(title){
+        blogs.find({title:title},{},function(err,blog){
+            catablog.find({},{},function(err,catablog){
+              res.render('showblogSearch',{post: blog , catablog:catablog , moment:moment , search:title});
+            })     
+        }) 
+    }
+    
+  });
   
 
 router.get('/catablog/add', function(req, res, next) {

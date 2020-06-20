@@ -65,6 +65,66 @@
 <br>
 
 
+<div class="row">
+    <div class="container">
+        <div class="column-1">
+            <div class="col-lg-3 col-lg-8 col-lg-12">
+                <h3 class="my-4" style="text-align: center;">BG</h3>
+                <div class="list-group">
+                    <a href="/blog/catablog/add" class="btn btn-primary">เพิ่มประเภทบทความ</a>
+                </div>
+            </div>
+        </div>
+        <div class="column-2">  
+            <div class="col-lg-8  col-lg-8 col-lg-12">
+                <h3 style="text-align: center;" class="my-4">Admin</h3>
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">บทความ</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% catablog.forEach(function(catablog){ %>
+                    <tr>
+                        <th scope="row"><%= catablog.name %></th>
+                        <td>
+                            <a href="/admin/Projects/blog/delete/<%= catablog._id %>" data-id="<%= catablog._id %>" class="btn btn-danger delete-PJ">Delete</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">โพส</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% post.forEach(function(posts){ %>
+                    <tr>
+                        <th scope="row"><%= posts.title %></th>
+                        <td>
+                            <a href="/admin/Projects/post/delete/<%= posts._id %>" data-id="<%= posts._id %>" class="btn btn-danger delete-PJ">Delete</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+        
+                
+             
+
+    </div>
+</div>
+<br>
+
     <footer >
         <div class="row">
             <div class="container">

@@ -27,7 +27,7 @@
           <!-- Author -->
           <p class="lead">
             by
-            <a href="#"><%= posts.author%></a>
+            <a href="/blog/post/show/?author=<%= posts.author%>"><%= posts.author%></a>
           </p>
   
           <hr>
@@ -45,7 +45,7 @@
           <%- posts.desc%>
           <%  }) %>
           <hr>
-          </div>
+        </div>
        <%- include sideblog%>
       </div>
       <!-- /.row -->
