@@ -1,9 +1,10 @@
 <%- include("partials/header") %>
-<title>Register</title>
+<title>SIGN UP</title>
 <h1></h1><br><br><br><br>
 
 <% if(locals.errors) { %>
-    <div class="container"  style="width: 35%;margin: 25px auto;">
+    <div class="bgtop">
+    <div class="container"  style="width: 35%;margin: -17px auto;">
     <ul class="alert alert-danger" >
     <% Object.values(errors).forEach(function(error){ %>
         <li>
@@ -12,105 +13,152 @@
     <% }) %>
     </ul>
     </div>
+    </div>
 <% } %>
+<div class="bg"><br><br>
+<form class="form-group" action="/users/register" method="post"  enctype="multipart/form-data">
+<div class="wrapper">
+    <div class="title">
+      Sign up
+    </div>
+    <div class="form">
+       <div class="form-group">  
+          <input type="text" name="name" class="input" placeholder="ชื่อผู้ใช้งาน">
+       </div>  
+       <div class="form-group">     
+          <input type="email" name="email" class="input" placeholder="email">
+       </div> 
+       <div class="form-group">        
+          <input type="password" name="password" class="input" placeholder="รหัสผ่าน">
+       </div> 
+       <div class="form-group">   
+          <input type="callnumber" name="callnumber" class="input" placeholder="เบอร์โทรศัพท์">
+       </div> 
+       <div class="form-group">   
+          <textarea class="textarea" name="location" type="location" placeholder="ที่อยู่"></textarea>
+       </div> 
+       <div class="form-group">  
+        <input type="file" name="image" class="input">
+     </div> 
+      <div class="form-group">
+        <input type="submit" value="Sign up" class="btn" name="submit">
+      </div>
+    </div>
+</div>
+<br><br>
+</form>
+</div>
 
-<div class="bg">
-<div class="container"  style="width: 35%;margin: -17px auto;">
-    <h1 style="text-align: center;">Sign up</h1>
-    <form class="form-group" action="/users/register" method="post"  enctype="multipart/form-data">
-        <div class="form-group">
-            
-            <input type="text" name="name" value="" class="form-control" placeholder="ชื่อผู้ใช้งาน">
-        </div>
-        <div class="form-group">         
-            <input type="email" name="email" value="" class="form-control" placeholder="อีเมล">
-        </div>
-        <div class="form-group">           
-            <input type="password" name="password" value="" class="form-control" placeholder="รหัสผ่าน">
-        </div>
-        <div class="form-group">           
-            <input type="location" name="location" value="" class="form-control" placeholder="ที่อยู่ผู้ใช้งาน">
-        </div>
-        <div class="form-group">            
-            <input type="callnumber" name="callnumber" value="" class="form-control" placeholder="เบอร์โทรศัพท์">
-        </div>
-        <div class="form-group">           
-            <input type="file" name="image" id="" class="form-control">
-        </div><br>
-        <div>
-            <input type="submit" name="submit">
-        </div><br><br><br><br><br><br>
-    </form>
-</div>
-</div>
+
 
 
 <style>
-   h1{
-    text-align: center;
-    color: #e27d5f;
-    text-transform: uppercase;
-    word-spacing: 10px;
-    font-family: 'Bitter', serif;
-    margin-top: -50px;
-    margin-bottom: 50px;
-    text-shadow: -2px 2px 1px #e8a87c;  
-  }
-.bg{
+.bgtop{
     background-color: #87cbca;
+}  
+.bg{
+    background-color: #85cdca;
+    margin: -17;
 }
-  
-  form{
-    font-family: 'Bitter', serif;
-  }
-  input{
-      padding: 10px;
-      font-size: inherit;
-  }
-  input[type="text"]{
-      display: block;
-      margin-bottom: 25px;
-      width: 100%;
-      border: 2px solid steelblue;
-  }
-  input[type="email"]{
-      display: block;
-      margin-bottom: 25px;
-      width: 100%;
-      border: 2px solid steelblue;
-  }
-  input[type="password"]{
-      display: block;
-      margin-bottom: 25px;
-      width: 100%;
-      border: 2px solid steelblue;
-  }
-  input[type="location"]{
-      display: block;
-      margin-bottom: 25px;
-      width: 100%;
-      border: 2px solid steelblue;
-  }
-  input[type="callnumber"]{
-      display: block;
-      margin-bottom: 25px;
-      width: 100%;
-      border: 2px solid steelblue;
-  }
-  input[type="file"]{
-      display: block;
-      margin: auto;
-      width: 100%;
-      border: 2px solid steelblue;
-  }
-  input[type="submit"]{
-    display: block;
-      margin: auto;
-      width: 100%;
-      border: none;
-      background: #e8a87c;
-      color: white;
-  }
 
+*{
+  font-family: 'Bitter', serif;
+}
+
+.wrapper{
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  margin: 0px auto;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.125);
+  padding: 30px;
+}
+
+.wrapper .title{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #e27d5f;
+  text-shadow: -2px 2px 1px #e8a87c;  
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.wrapper .form{
+  width: 100%;
+}
+
+.wrapper .form .form-group{
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .form .form-group label{
+   width: 200px;
+   color: #757575;
+   margin-right: 10px;
+  font-size: 14px;
+}
+
+.wrapper .form .form-group .input,
+.wrapper .form .form-group .textarea{
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.wrapper .form .form-group .textarea{
+  width: 100%;
+  height: 125px;
+  resize: none;
+}
+
+.wrapper .form .form-group .input:focus,
+.wrapper .form .form-group .textarea:focus{
+  border: 1px solid steelblue;
+}
+
+.wrapper .form .form-group p{
+   font-size: 14px;
+   color: #757575;
+}
+
+
+.wrapper .form .form-group .btn{
+  width: 100%;
+   padding: 8px 10px;
+  font-size: 15px; 
+  border: 0px;
+  background:  #e27d5f;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+}
+
+.wrapper .form .form-group .btn:hover{
+  background: #e27d5f;
+}
+
+.wrapper .form .form-group:last-child{
+  margin-bottom: 0;
+}
+
+@media (max-width:420px) {
+  .wrapper .form .form-group{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wrapper .form .form-group label{
+    margin-bottom: 5px;
+  }
+  .wrapper .form .form-group.terms{
+    flex-direction: row;
+  }
+}
 </style>
 <%-  include("partials/footer") %>

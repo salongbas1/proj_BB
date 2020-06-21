@@ -101,10 +101,10 @@ var upload = multer({storage:gg})
 
 //รับค่าจาก register บันทึกข้อมูล
 router.post('/register',upload.single("image"),[
-  check('name','กรุณาป้อนชื่อ*').not().isEmpty(),
+  check('name','กรุณาป้อนชื่อผู้ใช้งาน*').not().isEmpty(),
   check('email','กรุณาป้อนอีเมล*').isEmail(),
   check('password','กรุณาป้อนรหัสผ่าน*').not().isEmpty(),
-  check('location','กรุณาป้อนที่อยู่*').not().isEmpty(),
+  check('location','กรุณาป้อนที่อยู่ผู้ใช้งาน*').not().isEmpty(),
   check('callnumber','กรุณาป้อนเบอร์โทรศัพท์*').not().isEmpty(),
 
   
