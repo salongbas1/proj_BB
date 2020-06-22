@@ -1,85 +1,91 @@
 <%- include("partials/header") %>
 <title>Edit Profile</title>
+<div class="bg">
+    <br><br><br><br>
+<div class="container">
+    <div class="main" id="imagepreview">
+        <img src="/images/<%= user.image %>" id="image" width="500px" height="500px" alt=""> 
+    </div>
+    <aside class="sidebar">
+        <h1 style="font-size:30px;text-align: center;">แก้ไขโปรไฟล์</h1>
+        <% if(user){ %>
+        <form class="form-group" action="/profile/edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="name" value="<%= user.name %>">
+            <input type="hidden" name="password" value="<%= user.password %>">
+            <input type="hidden" name="id" value="<%= user._id %>">
+            <div class="from-group">
+                <label for="" class="headtext">Email::</label>
+                <input type="email" name="email" value="<%= user.email %>" class="form-control">
+            </div><br>
+            <div class="from-group">
+                <label for="" class="headtext">Location::</label>
+                <input type="text" name="location" value="<%= user.location %>" class="form-control">
+            </div><br>
+            <div class="from-group">
+                <label for="" class="headtext">Phone number::</label>
+                <input type="text" name="callnumber" value="<%= user.callnumber %>" class= "form-control">
+            </div><br>
+            <div id="imageselect">
+                <label for="" class="headtext">Picture::</label>
+                <input type="file" name="image" id="img_preview"> <br><br> 
+                <input type="submit" name="" value="Update" class="btn" style="width: 100%;background: #e27d5f;text-transform: uppercase; color: #fff;">  
+        </form>  
+        <% } %>  
+    </aside>  
+</div><br><br><br>
+</div>
+
 <style>
-    .column-1 {
-        float: left;
-        width: 40%;
-        padding: 20px;
-        
+.bg{
+    background-color: #85cdca;
+}
+.container{
+    font-family: 'Bitter', serif;
+    max-width: 900px;
+    background-color: #85cdca;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "main sidebar";
+     grid-gap: 60px;
+}
+
+.main{
+    grid-area: main;
+}
+.main img{
+    border: 1px solid black;
+}
+.sidebar{
+    grid-area: sidebar;
+
+    padding: 50px;
+}
+.form-control{
+    font-family: 'Bitter', serif;
+}
+.headtext{
+    width: 200px;
+   color: black;
+   margin-right: 10px;
+  font-size: 15px;
+}
+
+
+
+@media (max-width: 990px){
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "sidebar"
+            "main" ;
     }
 
-    .my-4 {
-        background-color: #aaa;
-    }
-    
-    .column-2 {
-        float: left;
-        width: 60%;
-        padding: 20px;
-    }
-
+}
 
 </style>
-<br><br><br>
-
-    <div class="row">
-        <div class="container">
-            <div class="column-1">
-                <div class="col-lg-3 col-lg-8 col-lg-12">
-                    <h3 class="my-4" style="text-align: center;">แก้ไขโปรไฟล์</h3>                   
-                </div>
-                <div style=" padding: 10px;" id="imagepreview" >
-                    <img src="/images/<%= user.image %>" id="image" width="300px" height="400px" alt="">
-                </div>
-                
-            </div>
-            <div class="column-2">  
-                <div class="col-lg-3 col-lg-8 col-lg-12">
-                <div class="container"  style="width: 35%;margin: 25px auto;">
-                    <% if(user){ %>
-                    <form class="form-group" action="/profile/edit" method="post" enctype="multipart/form-data">
-                        
-                        <div class="form-group">
-                            <label for="">Username:</label>
-                            <input type="text" name="name" value="<%= user.name %>" class="form-control">
-                        </div>
-                        <input type="hidden" name="id" value="<%= user._id %>">
-                        <div class="form-group">
-                            <label for="">Email:</label>
-                            <input type="email" name="email" value="<%= user.email %>" class="form-control">
-                        </div>
-                        <!-- <div class="form-group"> -->
-                            <!-- <label for="">Password:</label> -->
-                            <!-- <input type="password" name="password" value="<%= user.password %>" class="form-control"> -->
-                        <!-- </div> -->
-                        <div class="form-group">
-                            <label for="">Location:</label>
-                            <input type="text" name="location" value="<%= user.location %>" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Phone number:</label>
-                            <input type="text" name="callnumber" value="<%= user.callnumber %>" class="form-control">
-                        </div>
-                        <div id="imageselect">
-                        <label for="">รูปภาพ:</label>
-                        <input type="file" name="image" id="img_preview">
-                        
-                        </div>
-                        <br>
-                        
-                        
-                        
-
-                        <input type="submit" name="" value="อัพเดท" class="btn btn-success">
-                    </form>
-                    <% } %>
-                </div>
-               </div>
-            </div>
-        </div>
-    </div>
-    <br><br><br>
-    
 
 
     <script>
