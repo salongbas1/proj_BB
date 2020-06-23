@@ -50,7 +50,7 @@ router.get('/post/show/', function(req, res, next) {
     }
     if(title){
         blogs.find({title:title},{},function(err,blog){
-            catablog.find({},{},function(err,catablog){
+            catablog.find({},function(err,catablog){
               res.render('showblogSearch',{post: blog , catablog:catablog , moment:moment , search:title});
             })     
         }) 

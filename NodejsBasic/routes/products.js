@@ -22,7 +22,13 @@ var stor = multer.diskStorage({
 //ที่อยู่ที่เก็บไฟล์
 var upload = multer({storage:stor})
 
-
+function enSureAuthenticated(req,res,next){
+      if(req.isAuthenticated()){
+              return next();
+      } else {
+        res.redirect('/users/login');
+      }
+}
 
 router.get('/add', function(req, res, next) {
     var catagorys = stonedb.get('catagory')
@@ -32,7 +38,7 @@ router.get('/add', function(req, res, next) {
   });
 
   //ดูรายละเอียดสินค้า
-  router.get('/show/:id', function(req, res, next) {
+  router.get('/show/:id',enSureAuthenticated, function(req, res, next) {
       var catagorys = stonedb.get('catagory')
       var products = stonedb.get('products')
 
@@ -43,7 +49,7 @@ router.get('/add', function(req, res, next) {
       })
   });
 
-  router.get('/show/', function(req, res, next) {
+  router.get('/show/',enSureAuthenticated, function(req, res, next) {
       var catagorys = stonedb.get('catagory')
       var products = stonedb.get('products')
       var catagoryname = req.query.catagory
@@ -92,7 +98,7 @@ router.get('/add', function(req, res, next) {
   
 
 
-  router.get('/cart', function(req, res, next) {
+  router.get('/cart',enSureAuthenticated, function(req, res, next) {
       //ตะกร้า
       var cart= req.session.cart
       var disPlayCart = {
