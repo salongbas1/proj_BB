@@ -7,6 +7,15 @@ var {check,validationResult}= require('express-validator')
 var mongodb = require('mongodb');
 var blog = require('monk')('localhost:27017/blog');
 
+
+function enSureAuthenticated(req,res,next){
+    if(req.isAuthenticated()){
+            return next();
+    } else {
+      res.redirect('/users/login');
+    }
+}
+
 router.get('/', function(req, res, next) {
   var blogs = blog.get('post')
   var catablog = blog.get('catablog')
@@ -27,7 +36,7 @@ router.get('/showblog/:id', function(req, res, next) {
     }) 
   });
 
-router.get('/post/show/', function(req, res, next) {
+router.get('/post/show/',enSureAuthenticated, function(req, res, next) {
     var blogs = blog.get('post')
     var catablog = blog.get('catablog')
     var name = req.query.catablog
