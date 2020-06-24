@@ -16,15 +16,25 @@
         width: 65%;
         padding: 20px;
     }
+    .bg{
+        background-color: #dae1e7;
+        font-family: 'Kanit', sans-serif;  
+    }
+    h3{
+        font-family: 'Poppins', sans-serif;
+    }
+    h2{
+        font-family: 'Kanit', sans-serif;
+    }
   
 </style>
+<div class="bg">
 <br><br><br>
-
     <div class="row">
         <div class="container">
             <div class="column-1">
                 <div class="col-lg-3 col-lg-8 col-lg-12">
-                    <h3 class="my-4" style="text-align: center;">BG</h3>
+                    <h3 class="my-4" style="text-align: center;">Admin:BB</h3>
                     <div class="list-group">
                         <a href="/admin/Projects/add" class="btn btn-primary">add</a>
                     </div>
@@ -32,7 +42,7 @@
             </div>
             <div class="column-2">  
                 <div class="col-lg-3 col-lg-8 col-lg-12">
-                <h3 style="text-align: center;" class="my-4">แบบฟอร์มบันทึกข้อมูล</h3>
+                <h2 style="text-align: center;" class="my-4">แบบฟอร์มเพิ่มข้อมูล</h2>
                 <form action="/admin/Projects/add" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="">อาชีพ</label>
@@ -51,11 +61,12 @@
                         <input type="file" name="image" id="" class="form-control">
                     </div>
                    
-                     <input type="submit" name="" value="บันทึกข้อมูล" class="btn btn-success">
+                     <input type="submit" name="" value="UPDATE" class="btn btn-success">
                 </form>    
                 </div>
             </div>
         </div>
     </div>
-
+    <br><br><br><br><br><br>
+</div>
 <%-  include("partials/footer") %>

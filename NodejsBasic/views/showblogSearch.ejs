@@ -15,11 +15,11 @@
       <div class="col-md-8">
         <%  if(post.length > 0){%>
             <h1 class="my-4">ค้นหา "<%= search%>"</h1>
-
+            <div class="card md-4">
         <% post.forEach(function(posts){ %>
         
          
-        <div class="card md-4">
+        
           <img class="card-img-top" src="<%= posts.image %>" alt="Card image cap" >
           <div class="card-body">
             <h2 class="card-title"><%= posts.title %></h2>
@@ -43,7 +43,7 @@
     </div>
     <%-include sideblog %>
 </div>
-
+</div>
 
 
   

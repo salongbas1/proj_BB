@@ -8,11 +8,12 @@
   border-color:white;
   cursor: pointer;
   height: 300px;
-  
-
+}
+.bg{
+  background-color: #85cdca;
 }
 </style>
-
+<div class="bg">
 <div class="container">
   <div class="row">
     <div class="col-lg-12 my-4">
@@ -23,7 +24,7 @@
             <a href="/home/details/<%= project._id %>"><img  src="/images/<%= project.image %>" class="img-crop"></a>
             <div class="card-body">
               <h4 class="card-title">
-                ชื่อ: <a href="#"><%= project.name %></a>
+                <a href="#"><%= project.name %></a>
               </h4>
               <h6><%= project.date %></h6>
               <p class="card-text"><%= descText(project.desc,50) %>...</p>
@@ -40,5 +41,5 @@
     </div>
   </div>
 </div>
-    
+</div>    
     
