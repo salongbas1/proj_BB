@@ -26,7 +26,9 @@
           </tr>
           <% }) %>
           <tr>
-              <td></td>
+              <td>
+                 <a class="clearcart btn btn-danger" href="/products/cart/clear">Clear cart</a>
+              </td>
               <td></td>
               <td></td>
               <th>ราคารวม = </th>
@@ -40,6 +42,14 @@
       
       
    </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <script>
+
+      $('a.clearcart').on('click',function(){
+        if(!confirm('confirm deletion'))
+          return false
+      })
+
+   </script>
 
 
 <%-  include("partials/footer") %>

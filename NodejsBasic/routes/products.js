@@ -96,6 +96,7 @@ router.get('/add', function(req, res, next) {
   });
 
   
+  
 
 
   router.get('/cart',enSureAuthenticated, function(req, res, next) {
@@ -115,6 +116,15 @@ router.get('/add', function(req, res, next) {
       res.render('cart',{cart:disPlayCart})
 });
 
+router.get('/cart/clear',enSureAuthenticated, function(req, res, next) {
+      //ตะกร้า
+      delete req.session.cart
+      var disPlayCart = {
+            item:[],total:0
+      }
+      
+      res.render('cart',{cart:disPlayCart})
+});
 
 
 
