@@ -1,8 +1,8 @@
 <%- include("partials/header") %>
-<br><br><br><br>
+<div class="bg">
+    <br><br><br><br>
     <div class="container">
-        <div class="row my-4">
-        
+        <div class="row my-4">    
         <div class="col-lg-12 my-4">
             <h2 style="text-align: center;">แบบฟอร์มบันทึกสินค้า</h2><br>
             <% if(locals.errors) { %>
@@ -45,6 +45,17 @@
         </div>
       </div>
     </div>
- 
+
+<style>
+    .bg{
+        background-color: #dae1e7;
+    }
+    .container{
+        font-family: 'Kanit', sans-serif;
+    }
+    h2{
+        font-family: 'Kanit', sans-serif;
+    }
+</style> 
     
 <%- include("partials/footer") %>

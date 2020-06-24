@@ -1,10 +1,11 @@
 <%- include("partials/header") %>
-<br><br><br><br>
+<div class="bg">
+    <br><br><br><br>
     <div class="container">
         <div class="row my-4">
         <%- include sidebar %>
         <div class="col-lg-9">
-            <h2 style="text-align: center;">แบบฟอร์มบันทึกหมวดหมู่สินค้า</h2><br>
+            <h2 style="text-align: center;">เพิ่มหมวดหมู่สินค้า</h2><br>
             <% if(locals.errors) { %>
                 <ul class="alert alert-primary" role="alert">
                     <% Object.values(errors).forEach(function(error){ %>
@@ -22,7 +23,18 @@
             </form>
         </div>
       </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
+</div>
+<style>
+    .bg{
+        background-color: #dae1e7;
+        font-family: 'Kanit', sans-serif;
+    }
+    h2{
+        font-family: 'Kanit', sans-serif;
+    }
+</style>
  
     
 <%- include("partials/footer") %>

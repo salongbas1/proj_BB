@@ -60,11 +60,18 @@
     background-color: #85cdca;
     margin: -17;
 }
-
-*{
+.title{
   font-family: 'Bitter', serif;
 }
-
+.input{
+  font-family: 'Kanit', sans-serif;
+}
+.textarea{
+  font-family: 'Kanit', sans-serif;
+}
+.btn{
+  font-family: 'Bitter', serif;
+}
 .wrapper{
   max-width: 500px;
   width: 100%;
@@ -73,7 +80,6 @@
   box-shadow: 2px 2px 4px rgba(0,0,0,0.125);
   padding: 30px;
 }
-
 .wrapper .title{
   font-size: 24px;
   font-weight: 700;
@@ -83,19 +89,14 @@
   text-transform: uppercase;
   text-align: center;
 }
-
 .wrapper .form{
   width: 100%;
 }
-
 .wrapper .form .form-group{
   margin-bottom: 15px;
   display: flex;
   align-items: center;
 }
-
-
-
 .wrapper .form .form-group .input,
 .wrapper .form .form-group .textarea{
   width: 100%;
@@ -111,18 +112,14 @@
   height: 125px;
   resize: none;
 }
-
 .wrapper .form .form-group .input:focus,
 .wrapper .form .form-group .textarea:focus{
   border: 1px solid steelblue;
 }
-
 .wrapper .form .form-group p{
    font-size: 14px;
    color: #757575;
 }
-
-
 .wrapper .form .form-group .btn{
   width: 100%;
    padding: 8px 10px;
@@ -134,15 +131,12 @@
   border-radius: 3px;
   outline: none;
 }
-
 .wrapper .form .form-group .btn:hover{
   background: #e27d5f;
 }
-
 .wrapper .form .form-group:last-child{
   margin-bottom: 0;
 }
-
 @media (max-width:420px) {
   .wrapper .form .form-group{
     flex-direction: column;

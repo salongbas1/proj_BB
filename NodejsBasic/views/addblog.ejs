@@ -1,8 +1,8 @@
 
 <%- include("partials/header") %>
+<div class="bg">
 <br><br><br><br>
 <div class="container">
-
     <form action="/blog/catablog/add" method="POST">
         <div class="form-group">
             <% if(locals.errors) { %>
@@ -12,11 +12,26 @@
                     <% }) %>
                 </ul>
             <% } %>
-            <label for="">เพิ่มชื่อประเภท</label>
+            <label for="">เพิ่มชื่อประเภทบทความ</label>
             <input type="text" name="name" value="" class="form-control">
         </div>
-        <input type="submit"  value="บันทึก" class="btn btn-success">
+        <input type="submit"  value="บันทึกข้อมูล" class="btn btn-success">
     </form>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
+</div>
+
+<style>
+    .bg{
+        background-color: #dae1e7;
+    }
+    label{
+        font-size: 28;
+    }
+    .container{
+        font-family: 'Kanit', sans-serif; 
+    }
+
+</style>
     
 <%-  include("partials/footer") %>
