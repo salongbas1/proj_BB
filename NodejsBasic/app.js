@@ -6,11 +6,12 @@ var logger = require('morgan');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
+var port=process.env.PORT || 3000;
 var connectflash = require('connect-flash')
 //เชื่อมต่อ DB
 var mongodb = require('mongodb');
-var db = require('monk')('localhost:27017/ProjectDB');
-var blogdb = require('monk')('localhost:27017/blog');
+var db = require('monk')('mongodb+srv://salongbas:bas1234@cluster0-bxj4i.mongodb.net/<dbname>?retryWrites=true&w=majority');
+var blogdb = require('monk')('mongodb+srv://salongbas:bas1234@cluster0-bxj4i.mongodb.net/<dbname>?retryWrites=true&w=majority');
 
 //เชื่อมต่อการ อัพโหลด 
 var multer = require('multer');
