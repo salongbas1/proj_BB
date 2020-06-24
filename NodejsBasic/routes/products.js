@@ -9,6 +9,7 @@ var stonedb = require('monk')('localhost:27017/Stonebg');
 
 //upload
 var multer = require('multer');
+
 var stor = multer.diskStorage({
   destination:function(req,file,cb){
     cb(null,'./public/images');
@@ -115,6 +116,11 @@ router.get('/add', function(req, res, next) {
       disPlayCart.total = total
       res.render('cart',{cart:disPlayCart})
 });
+
+
+
+
+
 
 router.get('/cart/clear',enSureAuthenticated, function(req, res, next) {
       //ตะกร้า

@@ -34,7 +34,7 @@ router.get('/logout',function(req,res){
 //
 router.post('/login', passport.authenticate('local',{
     failureRedirect:'/users/login',
-    failureFlash:true
+    failureFlash:false
 
 }),function(req,res){
 
@@ -62,27 +62,27 @@ passport.use(new LocalStrategy(function(username,password,done){
           if(!user){
             //ไม่พบผู้ใช้
             return done(null,false)
+          } else {
+            
+            User.comparePassword(password,user.password,function(err,isMAtch){
+              if(err) throw error
+              console.log(isMAtch)
+              //รหัสผ่านตรงกัน
+              if(isMAtch){
+                
+                return done(null,user)
+              }
+              else {//ไม่พบผู้ใช้
+                 return done(null,false)
+              }
+           })  
+           
           }
-          if(user){
-             return done(null,user)
-          }
-          console.log(user)
-          //เปรียบเทียบส่วนของรหัสผ่าน
-          User.comparePassword(password,user.password,function(err,isMAtch){
-            if(err) throw error
-            console.log(isMAtch)
-            //รหัสผ่านตรงกัน
-            if(isMAtch){
-              
-              return done(null,user)
-            }
-            else {//ไม่พบผู้ใช้
-               return done(null,false)
-            }
-         })
-
-      });
+            
+      });  
+       
 }));
+
 
 
 //upload
