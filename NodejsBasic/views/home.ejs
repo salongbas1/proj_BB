@@ -1,18 +1,20 @@
 
 <%- include("partials/header") %>
 <title>Home</title>
+<style>
+    .home-h1-up {
+        text-align: center;
+    }
+    .bg, h1, h3{
+        font-family: 'Kanit', sans-serif;
+    }
+</style>
 <div class="bg">
-<br><br><br><br>
-
-    <div class="box">
-        <slider>
-            <slide><p></p></slide>
-            <slide><p></p></slide>
-            <slide><p></p></slide>
-            <slide><p></p></slide>
-        </slider>
+    <br><br><br><br>
+    <div class="container">
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <%- include imageslide %>
+    <br>
     <h1  style="text-align: center;">
         บทความ
     </h1>
@@ -38,75 +40,11 @@
    </div>
    <br><br><br>
 </div>
-
 </div>
+
 <%- include home-layout%>
 
 
-
-
-
-
-<style>
-    .bg{
-        background-color: #85cdca;
-    }
-    .home-h1-up {
-        text-align: center;
-    }
-    slider{
-    margin: auto;
-    display: block;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: absolute;
-}
-slider > * {
-    position: absolute;
-    display: block;
-    width: 1500px;
-    height: 500px;
-    background: #1f1f1f;
-    animation: slide 12s infinite;
-    overflow: hidden;
-}
-slide:nth-child(1){
-    left: 0%;
-    animation-delay: -1s;
-    background-image: url(https://www.parrotwebsite.com/wp-content/uploads/2019/10/AdobeStock_288571906-e1571304649589.jpeg);
-    background-size: cover;
-    background-position: center;
-}
-slide:nth-child(2){
-    animation-delay: 2s;
-    background-image: url(https://ca-times.brightspotcdn.com/dims4/default/2cc655e/2147483647/strip/true/crop/3758x2505+0+0/resize/1486x991!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fd7%2F29%2Fd0fcf47b40c39db853c65d1f4f8b%2Fred-masked-parakeet.jpg);
-    background-size: cover;
-    background-position: center;
-}
-slide:nth-child(3){
-    animation-delay: 5s;
-    background-image: url(https://neurosciencenews.com/files/2018/07/parrot-intelligence-neurosciencneews-public.jpg);
-    background-size: cover;
-    background-position: center;
-}
-slide:nth-child(4){
-    animation-delay: 8s;
-    background-image: url(https://pyxis.nymag.com/v1/imgs/a40/333/c115e400743744250195e8c5e8cfc9abc9-9-parrots.rsquare.w700.jpg);
-    background-size: cover;
-    background-position: center;
-}
-
-
-@keyframes slide{
-    0%{ left: 100%; width: 100%;}
-    5%{ left: 0%;}
-    25%{ left: 0%;}
-    30%{ left: -100%; width: 100%;}
-    30.0001%{ left: -100%; width: 0%;}
-    100%{ left: 100%; width: 0%;}
-}
-</style>
 
 <%-  include("partials/footer") %>
 

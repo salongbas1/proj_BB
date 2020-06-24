@@ -1,9 +1,8 @@
  <!-- Sidebar Widgets Column -->
  <div class="col-md-4">
-
     <!-- Search Widget -->
     <div class="card my-4">
-      <h5 class="card-header">Search</h5>
+      <h5 class="card-header">ค้นหา</h5>
       <div class="card-body">
         <div class="input-group">
           <form action="/blog/post/show" method="get">
@@ -11,6 +10,7 @@
             <span class="input-group-btn">
               <input type="submit" value="Go" class="btn btn-success">
             </span>
+            <a href="/blog/post/add" class="btn btn-primary " role="button" aria-pressed="true">เพิ่มบทความ</a>
           </form>
           
         </div>
@@ -37,3 +37,14 @@
         </div>
       </div>
     </div>
+  <style>
+    .col-md-4{
+      font-family: 'Poppins', sans-serif;
+    }
+    h5{
+      font-family: 'Kanit', sans-serif;
+    }
+    .btn{
+      font-family: 'Kanit', sans-serif;
+    }
+  </style>

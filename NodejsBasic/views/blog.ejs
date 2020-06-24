@@ -1,11 +1,10 @@
 <%- include("partials/header") %>
-        <br><br><br><br>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Blog</title>
 
- 
-
+<div class="bg"> 
+  <br><br><br><br>
   <!-- Page Content -->
   <div class="container">
 
@@ -24,7 +23,7 @@
             <h2 class="card-title"><%= posts.title %></h2>
             <p class="card-text"><%- descText(posts.desc,400) %>
             </p>
-            <a href="/blog/showblog/<%= posts._id %>" class="btn btn-primary">Read More &rarr;</a>
+            <a href="/blog/showblog/<%= posts._id %>" class="btn btn-primary">อ่านเพิ่มเติม &rarr;</a>
           </div>
           <div class="card-footer text-muted">
             โพสเวลา <%= moment(posts.date).format("DD-MM-YYYY")%> โดย
@@ -33,14 +32,29 @@
           <% }) %>
         </div>
         <!-- Blog Post -->
-      
-        
-         
+       
         </div>
         <!-- Side Widget -->
         <%-include sideblog %>
       </div>
   </div>
+</div>
+
+
+<style>
+  .bg{
+   background-color: #dae1e7;
+  }
+  h1{
+    font-family: 'Kanit', sans-serif;  
+  }
+  h2{
+    font-family: 'Kanit', sans-serif;  
+  }
+  .container{
+    font-family: 'Kanit', sans-serif;  
+  }
+</style>
 <%-  include("partials/footer") %>
 
   

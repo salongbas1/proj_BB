@@ -1,5 +1,7 @@
 <%- include("partials/header") %>
 <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<title>Post</title>
+<div class="bg">
 <br><br><br><br>
 <div class="container">
     <% if(locals.errors) { %>
@@ -41,8 +43,14 @@
         <input type="submit"  value="บันทึก" class="btn btn-success">
     </form>
 </div>
+</div>
 
-
+<style>
+   .bg{
+    background-color: #dae1e7;
+    font-family: 'Kanit', sans-serif;
+  }
+</style>
 <script>
     CKEDITOR.replace( 'desc' );
  

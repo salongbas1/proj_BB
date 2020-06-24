@@ -1,4 +1,6 @@
 <%- include("partials/header") %>
+<title>Topic</title>
+<div class="bg">
 <br><br><br><br>
     <div class="container">
         <% Projects.forEach(function(project){ %>
@@ -8,7 +10,14 @@
             <p><%= project.date %></p>
         
         <% }) %>
+        <br>
     </div>
 
+<style>
+    .bg,h3{
+    background-color: #dae1e7;
+    font-family: 'Kanit', sans-serif;
+  }
+</style>
 
 <%-  include("partials/footer") %>
